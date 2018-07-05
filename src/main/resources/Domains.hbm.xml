@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="org.bizmailov.hibernate.xml" schema="RDBDS">
+
+  <class name="A" table="A">
+    <id name="id" column="ID" />
+    
+    <version name="version" column="VERSION"/>
+      
+    <property name="notes" column="NOTES" />
+
+    <set name="bDomains" table="A_B">
+      <key column="A_ID" />
+      <many-to-many class="B" column="B_ID" />
+    </set>
+
+  </class>
+
+  <class name="B" table="B">
+    <id name="id" column="ID" />
+
+    <version name="version" column="VERSION" />
+      
+    <property name="username" column="USERNAME" />
+
+    <set name="aDomains" table="A_B">
+      <key column="B_ID" />
+      <many-to-many class="A" column="A_ID" />
+    </set>
+
+  </class>
+
+</hibernate-mapping>
