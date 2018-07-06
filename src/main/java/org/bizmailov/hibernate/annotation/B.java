@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Version;
 
 @Entity
 class B {
@@ -21,6 +22,6 @@ class B {
   @ManyToMany(fetch = FetchType.EAGER, mappedBy = "bDomains")
   public Set<A> aDomains;
 
-  @Column
+  @Version
   public int version;
 }

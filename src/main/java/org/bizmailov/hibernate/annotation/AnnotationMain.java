@@ -12,9 +12,7 @@ public class AnnotationMain {
     session.beginTransaction();
 
     A a = session.get(A.class, "1");
-    int version1 = a.version;
-
-    a.notes = new String("notes");
+    int versionBefore = a.version;
 
     B b = new B();
     b.id = "48";
@@ -25,9 +23,9 @@ public class AnnotationMain {
     session.save(a);
     session.flush();
 
-    int version2 = a.version;
-    System.out.println("version1: " + version1);
-    System.out.println("version2: " + version2);
+    int versionAfter = a.version;
+    System.out.println("version before: " + versionBefore);
+    System.out.println("version after: " + versionAfter);
 
     session.getTransaction().rollback();
     sessionFactory.close();

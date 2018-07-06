@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Version;
 
 @Entity
 class A {
@@ -27,6 +28,6 @@ class A {
       inverseJoinColumns = { @JoinColumn(name = "B_ID") })
   public Set<B> bDomains;
 
-  @Column
+  @Version
   public int version;
 }

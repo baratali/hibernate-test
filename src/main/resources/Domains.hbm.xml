@@ -4,7 +4,7 @@
   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 
-<hibernate-mapping package="org.bizmailov.hibernate.xml" schema="RDBDS">
+<hibernate-mapping package="org.bizmailov.hibernate.xml" schema="MYUSER">
 
   <class name="A" table="A">
     <id name="id" column="ID" />
