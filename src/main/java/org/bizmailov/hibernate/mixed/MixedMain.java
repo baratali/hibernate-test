@@ -12,6 +12,8 @@ public class MixedMain {
     session.beginTransaction();
 
     A a = session.get(A.class, "1");
+    int version1 = a.getVersion();
+
     a.notes = new String("notes");
 
     B b = new B();
@@ -25,6 +27,10 @@ public class MixedMain {
 
     session.save(a);
     session.flush();
+
+    int version2 = a.getVersion();
+    System.out.println("version1: " + version1);
+    System.out.println("version2: " + version2);
 
     session.getTransaction().rollback();
     sessionFactory.close();
